@@ -18,13 +18,13 @@ const Login = () => {
     backgroundPosition: "center",
   };
   return (
-    <div className="flex gap-2" style={backgroundImageStyle}>
+    <div className="flex gap-2 h-[100vh]" style={backgroundImageStyle}>
       <div className="hidden lg:block w-[40%]  mt-12">
         <Lottie animationData={loginAnimation} className="h-[300px] "></Lottie>
       </div>
       <div className="flex-1 ">
         <div className="w-[80%] m-auto bg-transparent rounded-xl">
-          <form action="" className="  p-3 space-y-2 shadow-md">
+          <form action="" className="mt-5  p-3 space-y-2 shadow-md">
             <div className="flex items-center gap-2">
               <img src={logo} alt="" className="w-[40px] h-[35px]" />
               <h1 className="font-semibold italic">HomeNest</h1>
