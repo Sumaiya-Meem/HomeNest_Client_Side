@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "image": "https://i.ibb.co/xhHGg4H/slide1.jpg",
+      "bedroom": 3,
+      "bathroom": 2,
+      "area": "1800 sqft",
+      "price": 250000
+    },
+    {
+      "id": 2,
+      "image": "https://i.ibb.co/r0K0ny3/slide3.jpg",
+      "bedroom": 4,
+      "bathroom": 3,
+      "area": "2200 sqft",
+      "price": 320000
+    },
+    {
+      "id": 3,
+      "image": "https://i.ibb.co/YdMRXFg/slide2.jpg",
+      "bedroom": 2,
+      "bathroom": 1,
+      "area": "1200 sqft",
+      "price": 180000
+    },
+    {
+      "id": 4,
+      "image": "https://i.ibb.co/MCxNYmC/slide4.jpg",
+      "bedroom": 5,
+      "bathroom": 4,
+      "area": "3000 sqft",
+      "price": 420000
+    }
+  ]
+  

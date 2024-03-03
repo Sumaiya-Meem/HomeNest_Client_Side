@@ -98,7 +98,7 @@ const Login = () => {
             </div>
             <div className="flex items-center">
               <p className="">
-                New to <span className="italic">HomeNest</span> ?{" "}
+                New to <span className="italic">HomeNest</span> ?
               </p>
               <Link to="/register">
                 <div className="flex items-center">
