@@ -1,36 +1,43 @@
 [
-   
     {
       "id": 1,
-      "image": "https://i.ibb.co/MCxNYmC/slide4.jpg ",
+      "villaName": "Modern Retreat",
+      "location": "89 Glenholme Rd Rock, FL 7123",
+      "image": "https://i.ibb.co/MCxNYmC/slide4.jpg",
       "bedroom": 4,
       "bathroom": 3,
       "area": "2200 sq ft",
-      "price": 320000
+      "price": "32,000"
     },
     {
-        "id": 2,
-        "image": "https://i.ibb.co/1ZQrR1B/slide5.jpg",
-        "bedroom": 3,
-        "bathroom": 2,
-        "area": "1800 sq ft",
-        "price": 250000
-      },
+      "id": 2,
+      "villaName": "Cozy Haven",
+      "location": "123 Tranquil Street, FL 5678",
+      "image": "https://i.ibb.co/1ZQrR1B/slide5.jpg",
+      "bedroom": 3,
+      "bathroom": 2,
+      "area": "1800 sq ft",
+      "price": "25,000,0"
+    },
     {
       "id": 3,
+      "villaName": "Urban Oasis",
+      "location": "456 City Center Blvd, FL 9012",
       "image": "https://i.ibb.co/YdMRXFg/slide2.jpg",
       "bedroom": 2,
       "bathroom": 1,
       "area": "1200 sq ft",
-      "price": 180000
+      "price": "18,000,0"
     },
     {
       "id": 4,
+      "villaName": "Luxury Haven",
+      "location": "789 Serene Street, FL 3456",
       "image": "https://i.ibb.co/grZ3sYL/slide6.jpg",
       "bedroom": 5,
       "bathroom": 4,
       "area": "3000 sq ft",
-      "price": 420000
+      "price":" 42,000,0"
     }
   ]
   

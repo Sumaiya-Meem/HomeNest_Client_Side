@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { IoBedOutline } from "react-icons/io5";
 import { FaBath } from "react-icons/fa";
 import { FaVectorSquare } from "react-icons/fa6";
-import "swiper/css";
-import "swiper/css/navigation";
 
-import { Navigation } from "swiper/modules";
 import axios from "axios";
 import { Carousel } from "flowbite-react";
 const Banner = () => {
@@ -20,15 +16,20 @@ const Banner = () => {
     data();
   }, []);
   return (
-    <div className="border-2 border-yellow-600">
+    <div className="">
 
 <div className="h-[450px]">
-      <Carousel leftControl="left" rightControl="right">
+      <Carousel >
       {slides.map((slide) => (
           // eslint-disable-next-line react/jsx-key
           <>
           <img src={slide.image} alt="" className="w-full h-[450px]" />
-          <div className="w-[70%] m-auto bg-white flex justify-evenly relative  -mt-20  border-2 border-red-600">
+          <div className="w-[80%] m-auto py-4 bg-white flex justify-evenly relative  -mt-24 ">
+               
+               <div>
+                   <h1 className="font-semibold font-serif ml-6">{slide.villaName}</h1>
+                   <p className="text-sm text-gray-700">{slide.location}</p>
+               </div>
                 <div className="flex items-center gap-2">
                     <div className="bg-blue-700 px-2 py-1"> 
                         <IoBedOutline className=" text-white text-xl"></IoBedOutline>
@@ -57,6 +58,12 @@ const Banner = () => {
                         <p className="font-semibold capitalize">{slide.area}</p>
                     </div>
                 </div>
+
+               
+                    <div className="ml-10">
+                        <p className="text-sm">For sale</p>
+                        <p className="font-bold capitalize text-blue-700">${slide.price}</p>
+                    </div>
             </div>
           </>
       ))}
