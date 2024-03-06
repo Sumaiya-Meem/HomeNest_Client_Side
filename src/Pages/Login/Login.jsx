@@ -87,7 +87,7 @@ const Login = () => {
             <div className="flex items-center ">
               <div className="h-[2px] bg-gray-500 w-52 mt-[6px] mr-2"></div>
               <p className="">or</p>
-              <div className="h-[2px] bg-gray-500 w-56 mt-[6px] ml-2"></div>
+              <div className="h-[2px] bg-gray-500 w-48 mt-[6px] ml-2"></div>
             </div>
 
             <div className="flex justify-center w-[78%]">
