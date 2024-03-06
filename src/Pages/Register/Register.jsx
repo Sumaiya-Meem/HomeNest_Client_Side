@@ -3,9 +3,79 @@ import ani from "../../../public/Animation - 1701619162523.json";
 import Lottie from "lottie-react";
 import { Button, Label, Select, TextInput } from "flowbite-react";
 import logo from "../../../public/icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { IoIosEyeOff } from "react-icons/io";
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
+
 const Register = () => {
+  const axiosSecure = useAxiosSecure()
+  const [showPass, setShowPass] = useState(false);
+  const {createUser,updateUserProfile,logOut } =useContext(AuthContext);
+  const [registerError, setRegisterError] = useState('');
+  const navigate = useNavigate();
+
+  const handleRegister = e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const name = form.name.value;
+    const userRole = form.user_role.value;
+    const userInfo = {
+        name,email, password,userRole
+    }
+    console.log(userInfo)
+
+    setRegisterError('');
+    if (!/^(?=.*[A-Z])(?=.*[@$!%*?&]).{6,}$/.test(password)) {
+        setRegisterError('Password should be at least six characters, one uppercase letter and one special character');
+        return;
+    }
+
+    createUser(email,password)
+    .then(res=>{
+      const loggedUser = res.user;
+      console.log(loggedUser)
+      updateUserProfile(name)
+      .then(()=>{
+        console.log("user profile updated successfully")
+        // create user in database
+        const userInfo={
+          name:name,
+          email:email
+        }
+        axiosSecure.post('/users',userInfo)
+        .then(res=>{
+          if(res.data.insertedId){
+            console.log("user add in database")
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Register Successfully",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            logOut().then(() => {
+              console.log("User logged out")
+              navigate("/login");
+            });
+          }
+        })
+        
+      })
+      .catch(err=>console.log(err))
+
+    })
+  }
+
+
+
+
   const backgroundImageStyle = {
     backgroundImage: `url(${bg})`,
     backgroundSize: "cover",
@@ -19,25 +89,25 @@ const Register = () => {
           <h1 className="font-semibold italic">HomeNest</h1>
         </div>
         <h1 className="font-semibold text-xl">Create a <span className="italic">HomeNest</span> account</h1>
-        <form action="">
+        <form action="" onSubmit={handleRegister}>
           <div className="max-w-md mt-2">
             <div className="mb-2 block">
-              <Label htmlFor="email4" value="Name" />
+              <Label htmlFor="" value="Name" />
             </div>
-            <TextInput id="email4" type="text" placeholder="" required />
+            <TextInput name='name' type="text" placeholder="" required />
           </div>
 
           <div className="max-w-md">
             <div className="mb-2 block">
-              <Label htmlFor="email4" value="Email" />
+              <Label htmlFor="" value="Email" />
             </div>
-            <TextInput id="email4" type="email" placeholder="" required />
+            <TextInput name='email' type="email" placeholder="" required />
           </div>
           <div className="max-w-md">
             <div className="mb-2 block">
-              <Label htmlFor="countries" value="User role" />
+              <Label htmlFor="" value="User role" />
             </div>
-            <Select id="countries" required>
+            <Select id="user_role" required>
               <option>Select user role</option>
               <option>User</option>
               <option>Agent</option>
@@ -46,13 +116,37 @@ const Register = () => {
 
           <div className="max-w-md">
             <div className="mb-2 block">
-              <Label htmlFor="email4" value="Password" />
+              <Label htmlFor="" value="Password" />
             </div>
-            <TextInput id="email4" type="password" placeholder="" required />
+            <div className="flex items-center relative">
+                <TextInput
+                  id="email4"
+                  type={showPass ? "text" : "password"}
+                  placeholder=""
+                  required
+                  name="password"
+                  className="w-full"
+                />
+                <span
+                  onClick={() => setShowPass(!showPass)}
+                  className="absolute right-2 text-xl"
+                >
+                  {showPass ? (
+                    <IoIosEyeOff className=""></IoIosEyeOff>
+                  ) : (
+                    <MdOutlineRemoveRedEye></MdOutlineRemoveRedEye>
+                  )}
+                </span>
+              </div>
           </div>
+          <div>
+            {
+              registerError && <p className="text-red-500">{registerError}</p>
+            }
+            </div>
 
           <div className="">
-              <Button pill className="bg-[#0079c1] w-[70%] mt-2">
+              <Button pill className="bg-[#0079c1] w-[70%] mt-2" type="submit">
                 Register
               </Button>
             </div>
