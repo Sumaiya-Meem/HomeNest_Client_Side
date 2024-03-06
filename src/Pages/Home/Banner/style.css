@@ -120,17 +120,7 @@
     filter: brightness(1.5);
 }
 
-/* @media screen and (max-width: 678px) {
-    .thumbnail{
-        justify-content: start;
-    }
-    .slider .list .item .content h2{
-        font-size: 60px;
-    }
-    .arrows{
-        top: 10%;
-    }
-} */
+
 
 @media screen  and (max-width:678px){
     .thumbnail{
@@ -138,13 +128,12 @@
         bottom: 10px;
     }
 
-    .btn-arrow{
-        top:10%;
+    .arrows{
+        top:20%;
+        right: 0;
     }
     .slider .list .item .content{
-        width: 100%;
-        left: 0;
-        margin-left: 2px;
+       display: none;
 
 
     }
@@ -152,15 +141,15 @@
 }
 @media screen and (min-width: 679px) and (max-width: 1000px) {
     .thumbnail {
-        justify-content: start;
+        justify-content: end;
         bottom: 10px;
     }
     .slider .list .item .content{
         width: 80%;
     }
     
-    .btn-arrow{
-        top:20%;
+    .arrows{
+        top:10%;
     }
 }
  
