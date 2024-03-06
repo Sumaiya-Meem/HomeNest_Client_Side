@@ -7,7 +7,7 @@
     inset: 0 0 0 0;
     overflow: hidden;
     opacity: 0;
-    transition: .5s;
+    transition: .3s;
 }
 .slider .list .item img{
     width: 100%;
