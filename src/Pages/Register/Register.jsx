@@ -11,6 +11,7 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoIosEyeOff } from "react-icons/io";
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const axiosSecure = useAxiosSecure()
@@ -81,8 +82,14 @@ const Register = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
+
   return (
+  
+
     <div className="flex gap-2 h-[100vh]" style={backgroundImageStyle}>
+        <Helmet>
+        <title>Register</title>
+      </Helmet>
       <div className="flex-1 ml-28 mt-10">
         <div className="flex items-center gap-2">
           <img src={logo} alt="" className="w-[40px] h-[35px]" />

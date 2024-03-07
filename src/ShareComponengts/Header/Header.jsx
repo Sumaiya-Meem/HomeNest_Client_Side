@@ -1,82 +1,118 @@
-import { NavLink } from "react-router-dom";
-import logo from "../../../public/icon.png"
-import {Navbar } from 'flowbite-react';
+import { Link, NavLink } from "react-router-dom";
+import logo from "../../../public/icon.png";
+import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
 import { CiLogin } from "react-icons/ci";
-const Header = () => {
-    const navItem = <>
+import { IoIosLogOut } from "react-icons/io";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
 
-    <NavLink
+const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    console.log("logout");
+    logOut()
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
+
+  const navItem = (
+    <>
+      <NavLink
         to="/"
         className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-[#0079c1]" : "text-black"
+          isPending ? "pending" : isActive ? "text-[#fff]" : "text-black"
         }
-    >
+      >
         Home
-    </NavLink>
-    <NavLink
+      </NavLink>
+      <NavLink
         to="/Property"
         className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-[#40b86a]" : "text-black"
+          isPending ? "pending" : isActive ? "text-[#008374]" : "text-black"
         }
-    >
+      >
         Property
-    </NavLink>
+      </NavLink>
 
-    <NavLink
+      <NavLink
         to="/dashboard"
         className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-[#40b86a]" : "text-black"
+          isPending ? "pending" : isActive ? "text-[#fff]" : "text-black"
         }
-    >
+      >
         Dashboard
-    </NavLink>
-</>
+      </NavLink>
+    </>
+  );
 
-    return (
-        <div>
-            
-    <Navbar fluid rounded>
-      <Navbar.Brand href="/">
-        <img src={logo} className="mr-3 h-6 sm:h-9" alt="Logo" />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">HomeNest</span>
-      </Navbar.Brand>
-      <div className="flex md:order-2">
-        {/* <Dropdown
-          arrowIcon={false}
-          inline
-          label={
-            <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
-          }
-        >
-          <Dropdown.Header>
-            <span className="block text-sm">Bonnie Green</span>
-            <span className="block truncate text-sm font-medium">name@flowbite.com</span>
-          </Dropdown.Header>
-          <Dropdown.Item>Dashboard</Dropdown.Item>
-          <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Item>Earnings</Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
-        </Dropdown> */}
-         <NavLink
-        to="/login"
-        className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-[#0079c1] mr-6 font-serif" : "text-black mr-6 font-serif" 
-        }
-    >
-     <div className="flex items-center gap-1"><CiLogin  className="text-xl"></CiLogin>   Login</div>
-    </NavLink>
-        <Navbar.Toggle />
-      </div>
-      <Navbar.Collapse>
-    {navItem}
+  return (
+    <div>
+      <Navbar fluid rounded className="fixed z-10 bg-opacity-20 bg-[#282828] w-full">
+        <Navbar.Brand href="/">
+          <img src={logo} className="mr-3 h-6 sm:h-9" alt="Logo" />
+          <span className="self-center whitespace-nowrap text-xl font-semibold text-white">
+            HomeNest
+          </span>
+        </Navbar.Brand>
+        <div className="flex md:order-2">
+          {user ? (
+            <>
+              <Link to="">
+              <Dropdown
+                arrowIcon={false}
+                inline
+                label={
+                  <Avatar alt="User settings" img={user?.photoURL} rounded />
+                }
+              >
+                <Dropdown.Header>
+                  <span className="block text-sm">{user?.displayName}</span>
+                  <span className="block truncate text-sm font-medium">
+                    {user?.email}
+                  </span>
+                </Dropdown.Header>
+                <Dropdown.Item>
+                  <Link to="/dashboard">Dashboard</Link>
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item>
+                  <Button color="" className="text-black" onClick={handleLogout}>
+                    <span className="mr-2 text-xl ">
+                      <IoIosLogOut></IoIosLogOut>
+                    </span>
+                    LogOut
+                  </Button>
+                </Dropdown.Item>
+              </Dropdown>
+              
+              </Link>
+            </>
+          ) : (
+            <>
+              <NavLink
+                to="/login"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? "text-[#348f54]"
+                    : "text-black"
+                }
+              >
+                <div className="flex items-center gap-1 font-semibold">
+                  <CiLogin className="text-xl"></CiLogin><p className="text-xl">Login</p>
+                </div>
+              </NavLink>
+            </>
+          )}
 
-      </Navbar.Collapse>
-    </Navbar>
-
-
+          <Navbar.Toggle />
         </div>
-    );
+        <Navbar.Collapse>{navItem}</Navbar.Collapse>
+      </Navbar>
+    </div>
+  );
 };
 
 export default Header;
