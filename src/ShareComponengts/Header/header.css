@@ -1,0 +1,45 @@
+.menu::after {
+    content: " ";
+    position: absolute;
+    background-color: #bc0024;
+    height: 2px;
+    width: 0%;
+    left: 43%; 
+    top: 40px;
+    transition: 0.3s;
+}
+
+.menu:hover:after{
+   width: 4%;
+}
+
+.property::after {
+    content: " ";
+    position: absolute;
+    background-color: #bc0024;
+    height: 2px;
+    width: 0%;
+    left: 51%; 
+    top: 40px;
+    transition: 0.3s;
+    transform: translateX(-50%); 
+}
+
+.property:hover:after {
+    width: 6%; 
+}
+.dashboard::after {
+    content: " ";
+    position: absolute;
+    background-color: #bc0024;
+    height: 2px;
+    width: 0%;
+    left: 60%; 
+    top: 40px;
+    transition: 0.3s;
+    transform: translateX(-50%); 
+}
+
+.dashboard:hover:after {
+    width: 6%; 
+}

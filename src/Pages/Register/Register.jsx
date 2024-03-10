@@ -2,7 +2,7 @@ import bg from "../../../public/bg.avif";
 import ani from "../../../public/Animation - 1701619162523.json";
 import Lottie from "lottie-react";
 import { Button, Label, Select, TextInput } from "flowbite-react";
-import logo from "../../../public/icon.png";
+// import logo from "../../../public/icon.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useContext, useState } from "react";
@@ -91,10 +91,10 @@ const Register = () => {
         <title>Register</title>
       </Helmet>
       <div className="flex-1 ml-28 mt-10">
-        <div className="flex items-center gap-2">
+        {/* <div className="flex items-center gap-2">
           <img src={logo} alt="" className="w-[40px] h-[35px]" />
           <h1 className="font-semibold italic">HomeNest</h1>
-        </div>
+        </div> */}
         <h1 className="font-semibold text-xl">Create a <span className="italic">HomeNest</span> account</h1>
         <form action="" onSubmit={handleRegister}>
           <div className="max-w-md mt-2">

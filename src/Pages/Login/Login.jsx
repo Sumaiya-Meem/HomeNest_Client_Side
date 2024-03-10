@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import logo from "../../../public/icon.png";
+// import logo from "../../../public/icon.png";
 import loginAnimation from "../../../public/Animation - 1701619502457.json";
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { FcGoogle } from "react-icons/fc";
@@ -105,10 +105,10 @@ const Login = () => {
       <div className="flex-1 ">
         <div className="w-[80%] m-auto bg-transparent rounded-xl">
           <form action="" className="mt-5  p-3 space-y-2 shadow-md" onSubmit={handleLogin}>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <img src={logo} alt="" className="w-[40px] h-[35px]" />
               <h1 className="font-semibold italic">HomeNest</h1>
-            </div>
+            </div> */}
             <h1 className="font-semibold text-xl">Log in</h1>
             {/* <p className="text-gray-700 text-sm">
               Continue to <span className="italic">HomeNest</span>

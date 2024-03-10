@@ -5,7 +5,7 @@ import { CiLogin } from "react-icons/ci";
 import { IoIosLogOut } from "react-icons/io";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
-
+import "./header.css"
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -21,7 +21,7 @@ const Header = () => {
       <NavLink
         to="/"
         className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "text-[#fff]" : "text-black"
+          isPending ? "pending" : isActive ? "text-[#bc0024] font-bold menu   " : "text-black"
         }
       >
         Home
@@ -29,16 +29,16 @@ const Header = () => {
       <NavLink
         to="/Property"
         className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "text-[#008374]" : "text-black"
+          isPending ? "pending" : isActive ? "text-[#bc0024] font-bold property" : "text-black"
         }
       >
-        Property
+       All Property
       </NavLink>
 
       <NavLink
         to="/dashboard"
         className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "text-[#fff]" : "text-black"
+          isPending ? "pending" : isActive ? "text-[#bc0024] font-bold dashboard" : "text-black"
         }
       >
         Dashboard
@@ -48,11 +48,11 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar fluid rounded className="fixed z-10 bg-opacity-20 bg-[#282828] w-full">
+      <Navbar fluid rounded className=" z-10 bg-opacity-10  bg-[#939393] w-full shadow-lg">
         <Navbar.Brand href="/">
           <img src={logo} className="mr-3 h-6 sm:h-9" alt="Logo" />
-          <span className="self-center whitespace-nowrap text-xl font-semibold text-white">
-            HomeNest
+          <span className="self-center whitespace-nowrap text-xl font-bold text-[#000] italic">
+            <span className="text-[#bc0024]">H</span>ome<span className="text-[#bc0024]">N</span>est
           </span>
         </Navbar.Brand>
         <div className="flex md:order-2">

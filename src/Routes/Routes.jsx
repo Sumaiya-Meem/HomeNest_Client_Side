@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Dashboard from "../DashboardPage/Dashbaord/Dashboard";
+import AllProperty from "../Pages/AllProperties/AllProperty/AllProperty";
 
   
   const router = createBrowserRouter([
@@ -25,6 +26,10 @@ import Dashboard from "../DashboardPage/Dashbaord/Dashboard";
         {
           path: "/login",
           element: <Login></Login>,
+        },
+        {
+          path: "/Property",
+          element: <AllProperty></AllProperty>,
         },
         {
           path: "/dashboard",
