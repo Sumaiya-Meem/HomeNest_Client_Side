@@ -5,7 +5,8 @@ import { CiLogin } from "react-icons/ci";
 import { IoIosLogOut } from "react-icons/io";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
-import "./header.css"
+import person from "../../../public/person.png"
+// import "./header.css"
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -63,7 +64,7 @@ const Header = () => {
                 arrowIcon={false}
                 inline
                 label={
-                  <Avatar alt="User settings" img={user?.photoURL} rounded />
+                  <Avatar alt="User" img={person} rounded />
                 }
               >
                 <Dropdown.Header>

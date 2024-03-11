@@ -5,8 +5,8 @@ import MainLayout from "../Pages/MainLayout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import Dashboard from "../DashboardPage/Dashbaord/Dashboard";
 import AllProperty from "../Pages/AllProperties/AllProperty/AllProperty";
+import Dashboard from "../Pages/DashboardPage/Dashboard/Dashboard";
 
   
   const router = createBrowserRouter([
@@ -30,15 +30,23 @@ import AllProperty from "../Pages/AllProperties/AllProperty/AllProperty";
         {
           path: "/Property",
           element: <AllProperty></AllProperty>,
-        },
-        {
-          path: "/dashboard",
-          element: <Dashboard></Dashboard>,
-        },
+        }
         
    
       ]
-      }
+      },
+
+      {
+        path: "dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+          {
+            // path: "",
+            // element: <Profile></Profile>,
+          },
+         
+        ]
+        }
   ]);
 
 export default router ;

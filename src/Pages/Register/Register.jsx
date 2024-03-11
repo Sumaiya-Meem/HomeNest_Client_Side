@@ -44,11 +44,12 @@ const Register = () => {
       console.log(loggedUser)
       updateUserProfile(name)
       .then(()=>{
-        console.log("user profile updated successfully")
+        console.log("user added successfully")
         // create user in database
         const userInfo={
           name:name,
-          email:email
+          email:email,
+          role:userRole
         }
         axiosSecure.post('/users',userInfo)
         .then(res=>{
