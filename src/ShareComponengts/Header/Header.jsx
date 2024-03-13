@@ -9,6 +9,7 @@ import person from "../../../public/person.png"
 // import "./header.css"
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  
 
   const handleLogout = () => {
     console.log("logout");
