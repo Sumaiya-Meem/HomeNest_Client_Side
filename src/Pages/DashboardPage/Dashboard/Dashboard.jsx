@@ -1,13 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { RxDashboard } from "react-icons/rx";
-import { IoIosAddCircle } from "react-icons/io";
+import { IoIosAddCircleOutline } from "react-icons/io";
 import { TfiAlignJustify } from "react-icons/tfi";
+import { IoMdHome } from "react-icons/io";
+import { IoPersonOutline } from "react-icons/io5";
+import { GoQuestion } from "react-icons/go";
 import "./Dashboard.css";
 import { AuthContext } from "../../../Context/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { NavLink } from "react-router-dom";
 import logo from "../../../../public/icon.png";
-import { Avatar, Dropdown, Navbar, TextInput } from "flowbite-react";
+import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { FaSearch } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdMessage } from "react-icons/md";
@@ -70,11 +73,16 @@ const Dashboard = () => {
         <div className="">
           <div className="relative md:w-96 flex items-center">
             <input
-              type="search" name=""  placeholder="Search here"
+              type="search"
+              name=""
+              placeholder="Search here"
               className="hidden md:block  md:w-full px-4 py-1  rounded shadow-md outline-none"
             />
             <span className="absolute right-2">
-              <button className="md:hidden focus:outline-none text-black" onClick={()=>setIsSearch(!isSearch)}>
+              <button
+                className="md:hidden focus:outline-none text-black"
+                onClick={() => setIsSearch(!isSearch)}
+              >
                 <FaSearch></FaSearch>
               </button>
             </span>
@@ -115,37 +123,68 @@ const Dashboard = () => {
         </div>
       </div>
       {/* search for small device */}
-      {
-        isSearch ? <>
-        <div className="sm-search">
-          <div className="relative md:w-56 flex items-center mx-2">
-            <input
-              type="search" name=""  placeholder="Search here"
-              className="w-full px-4 py-1  rounded shadow-sm outline-none"
-            />
-            <span className="absolute right-2">
-              <button className=" focus:outline-none text-black">
-                <FaSearch></FaSearch>
-              </button>
-            </span>
+      {isSearch ? (
+        <>
+          <div className="sm-search">
+            <div className="relative md:w-56 flex items-center mx-2">
+              <input
+                type="search"
+                name=""
+                placeholder="Search here"
+                className="w-full px-4 py-1  rounded shadow-sm outline-none"
+              />
+              <span className="absolute right-2">
+                <button className=" focus:outline-none text-black">
+                  <FaSearch></FaSearch>
+                </button>
+              </span>
+            </div>
           </div>
-        </div>
-        </> : " "
-      }
+        </>
+      ) : (
+        " "
+      )}
       {/* header end */}
       <div className="md:flex">
         <div
-          className={`${
-            smallnavCollpase ? "smallNav" : ""
-          } side-container bg-[#f1f0f0]  text-black shadow-lg  w-full md:w-[150px] lg:w-64 ${
-            navCollpase ? "navCollapse" : " "
-          }`}
+          className={`${smallnavCollpase ? "smallNav" : ""}
+           side-container bg-[#f1f0f0]  text-black shadow-lg  w-full md:w-[150px] lg:w-64 pl-4 ${
+             navCollpase ? "navCollapse" : " "
+           }`}
         >
           {isAgent ? (
             <>
-              <li className="p-3 border-b-2 border-slate-400 rounded-lg">
-                <NavLink to="/dashboard/properties">Agent</NavLink>
-              </li>
+              <div className="flex items-center gap-2 p-2 border-b-[1px]">
+                <RxDashboard className="text-xl"></RxDashboard>
+                <NavLink to="/dashboard/properties" className="text-lg">
+                  Dashboard
+                </NavLink>
+              </div>
+              <div className="flex items-center gap-2 p-2 border-b-[1px]">
+                <IoIosAddCircleOutline className="text-xl"></IoIosAddCircleOutline>
+                <NavLink to="/dashboard/addProperty" className="text-lg">
+                  Add Property
+                </NavLink>
+              </div>
+              <div><h1 className="text-sm ml-4 mt-4 text-gray-500">PAGES</h1></div>
+              <div className="flex items-center gap-2 p-2 border-b-[1px]">
+                <IoPersonOutline className="text-xl"></IoPersonOutline>
+                <NavLink to="" className="text-lg">
+                 Profile
+                </NavLink>
+              </div>
+              <div className="flex items-center gap-2 p-2 border-b-[1px]">
+                <GoQuestion className="text-xl"></GoQuestion>
+                <NavLink to="" className="text-lg">
+                 F.A.Q
+                </NavLink>
+              </div>
+              <div className="flex items-center gap-2 p-2 border-b-[1px]">
+                <IoMdHome className="text-xl"></IoMdHome>
+                <NavLink to="/" className="text-lg">
+                 Home
+                </NavLink>
+              </div>
             </>
           ) : isUser ? (
             <>
@@ -159,7 +198,7 @@ const Dashboard = () => {
         </div>
 
         {/* content div */}
-        <div className="flex-1 bg-red-200 mt-2">
+        <div className="flex-1 bg-red-200">
           <h1>Meem</h1>
         </div>
       </div>
