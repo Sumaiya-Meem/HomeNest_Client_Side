@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AllProperty from "../Pages/AllProperties/AllProperty/AllProperty";
 import Dashboard from "../Pages/DashboardPage/Dashboard/Dashboard";
+import AddProperty from "../Pages/DashboardPage/AddProperty/AddProperty";
 
   
   const router = createBrowserRouter([
@@ -41,8 +42,8 @@ import Dashboard from "../Pages/DashboardPage/Dashboard/Dashboard";
         element: <Dashboard></Dashboard>,
         children: [
           {
-            // path: "",
-            // element: <Profile></Profile>,
+            path: "addProperty",
+            element: <AddProperty></AddProperty>,
           },
          
         ]

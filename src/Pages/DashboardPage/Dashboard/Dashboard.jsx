@@ -8,7 +8,7 @@ import { GoQuestion } from "react-icons/go";
 import "./Dashboard.css";
 import { AuthContext } from "../../../Context/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import logo from "../../../../public/icon.png";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { FaSearch } from "react-icons/fa";
@@ -145,10 +145,10 @@ const Dashboard = () => {
         " "
       )}
       {/* header end */}
-      <div className="md:flex">
+      <div className="md:flex ">
         <div
           className={`${smallnavCollpase ? "smallNav" : ""}
-           side-container bg-[#f1f0f0]  text-black shadow-lg  w-full md:w-[150px] lg:w-64 pl-4 ${
+           side-container bg-[#f1f0f0]  text-black shadow-lg  w-full md:w-[150px] lg:w-64 pl-4  ${
              navCollpase ? "navCollapse" : " "
            }`}
         >
@@ -198,8 +198,8 @@ const Dashboard = () => {
         </div>
 
         {/* content div */}
-        <div className="flex-1 bg-red-200">
-          <h1>Meem</h1>
+        <div className="flex-1 ">
+        <Outlet></Outlet>
         </div>
       </div>
     </div>
